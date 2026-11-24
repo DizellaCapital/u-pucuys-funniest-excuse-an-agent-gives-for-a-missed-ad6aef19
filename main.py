@@ -17,6 +17,8 @@ def main():
         raise SystemExit("line must be a single line")
     if "\t" in line:
         raise SystemExit("line must not contain a tab")
+    if line != line.strip():
+        raise SystemExit("line must not have leading or trailing whitespace")
     if not line.strip():
         raise SystemExit("line must not be only whitespace")
     out_dir = os.environ.get("MAKEFUN_OUTPUT_DIR", "/output")
